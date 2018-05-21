@@ -1,10 +1,7 @@
-### ... WORK IN PROGRESS ... 
-
-# hyper-representation
+# Hyper-representation
 This is the official repo for the experiments in the paper "Bilevel Programming for Hyperparameter Optimization and Meta-Learning"
- 
-All the experiments were done using tensorflow 1.2.1, there are some major changes in newer releases that might make 
-some things not working anymore.
+
+__WORK IN PROGRESS__
 
 ## Prerequisites
 you need to install [tensorflow](https://www.tensorflow.org/install/) >= 1.2.1
