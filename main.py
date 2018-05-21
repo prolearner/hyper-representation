@@ -34,7 +34,7 @@ parser.add_argument('-vg', '--visible-gpus', type=str, default="1", metavar='STR
 # Dataset/method options
 parser.add_argument('-d', '--dataset', type=str, default='miniimagenet', metavar='STRING',
                     help='omniglot or miniimagenet.')
-parser.add_argument('-nc', '--classes', type=int, default=200, metavar='NUMBER',
+parser.add_argument('-nc', '--classes', type=int, default=5, metavar='NUMBER',
                     help='number of classes used in classification (c for  c-way classification).')
 parser.add_argument('-etr', '--examples_train', type=int, default=1, metavar='NUMBER',
                     help='number of examples used for inner gradient update (k for k-shot learning).')
