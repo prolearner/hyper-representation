@@ -9,5 +9,5 @@ the package [FAR-HO](https://github.com/lucfra/FAR-HO) for hyper-parameter optim
 and [this experiment manager package](https://github.com/lucfra/ExperimentManager)
 
 ## Results Replications
-To run the experiments run `python main.py` from command line with the appropriate arguments
+To redo the experiments run `python main.py` from command line with the appropriate arguments
 described in the `main.py` file.
