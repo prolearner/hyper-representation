@@ -122,8 +122,6 @@ class BatchQueueMock:
         return [d for d in self.metadataset.generate(self.n_batches, self.batch_size, self.rand)]
 
 
-
-
 def save_obj(file_path, obj):
     with open(file_path, 'wb') as handle:
         pickle.dump(obj, handle, protocol=pickle.HIGHEST_PROTOCOL)
@@ -133,9 +131,6 @@ def load_obj(file_path):
     with open(file_path, 'rb') as handle:
         b = pickle.load(handle)
     return b
-
-
-
 
 
 ''' Useful Functions '''
@@ -292,7 +287,6 @@ def meta_train(exp_dir, metasets, exs, far_ho, saver, sess, n_test_episodes, MBS
     valid_batches = BatchQueueMock(metasets.validation, n_test_batches, MBS, rand)
     test_batches = BatchQueueMock(metasets.test, n_test_batches, MBS, rand)
 
-
     print('\nIteration quantities: train_train acc, train_test acc, valid_test, acc'
           ' test_test acc mean(std) over %d episodes' % n_test_episodes)
     with sess.as_default():
@@ -313,9 +307,6 @@ def meta_train(exp_dir, metasets, exs, far_ho, saver, sess, n_test_episodes, MBS
             if meta_it % print_interval == 0 or meta_it == n_meta_iterations - 1:
                 results['iterations'].append(meta_it)
                 results['episodes'].append(meta_it * MBS)
-
-
-
 
                 train_result = accuracy_on(train_batches, exs, far_ho, sess, T)
                 test_result = accuracy_on(test_batches, exs, far_ho, sess, T)
