@@ -100,6 +100,7 @@ for _ in range(meta_batch_size):
 
 L = tf.add_n(mb_dict['err'])
 E = L / meta_batch_size
+mean_acc = tf.add_n(mb_dict['acc'])/meta_batch_size
 
 inner_opt = far.GradientDescentOptimizer(learning_rate=0.1)
 outer_opt = tf.train.AdamOptimizer()
@@ -118,7 +119,6 @@ with sess.as_default():
 
         test_optim = tf.train.GradientDescentOptimizer(0.1)
         test_mbs = [mb for mb in meta_dataset.test.generate(n_episodes_testing, batch_size=meta_batch_size, rand=0)]
-        mb_loss, mb_acc = sess.run([tf.add_n(mb_dict['err']) / meta_batch_size,
-                                    tf.add_n(mb_dict['acc']) / meta_batch_size], feed_dict=valid_fd)
-        print('train_test (loss, acc)', (mb_loss, mb_acc))
+
+        print('train_test (loss, acc)', sess.run([E, mean_acc], feed_dict=valid_fd))
         print('test_test (loss, acc)', meta_test(test_mbs, mb_dict, test_optim, T))
